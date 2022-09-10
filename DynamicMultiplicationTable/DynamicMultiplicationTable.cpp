@@ -19,10 +19,11 @@ const int MAXNUM = int(10); // values higher than 10 will work
 const int MINNUM = int(0);
 
 
-int getInput() { // this does not work for "4a" "5b" etc
+int getInput() {
 	int num = int(0);
 
 	std::cin >> num;
+	rewind(stdin); // clear potential extras from buffer
 
 	while (!(std::cin) || num < MINNUM || num > MAXNUM) { // this is boilerplate code from stack overflow that i barely understand and barely works
 		std::cin.clear();
