@@ -13,8 +13,8 @@ void printTable(int** ppRootPointer, int rows, int cols);
 
 
 // constants
-const int MAXNUM = int(10); // values higher than 10 will work
-const int MINNUM = int(0);
+const int MAX_NUM = int(10); // values higher than 10 will work
+const int MIN_NUM = int(0);
 
 
 int getInput() {
@@ -23,7 +23,7 @@ int getInput() {
 	std::cin >> num;
 	rewind(stdin); // clear potential extras from buffer
 
-	while (!(std::cin) || num < MINNUM || num > MAXNUM) { // this is boilerplate code from stack overflow that i barely understand and barely works
+	while (!(std::cin) || num < MIN_NUM || num > MAX_NUM) { // this is boilerplate code from stack overflow that i barely understand and barely works
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		std::cout << "Must be integer between 1-10: ";
