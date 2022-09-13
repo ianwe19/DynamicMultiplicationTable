@@ -17,6 +17,33 @@ const int MAX_NUM = int(10); // values higher than 10 will work
 const int MIN_NUM = int(0);
 
 
+int main()
+{
+	int rows = int(0);
+	int cols = int(0);
+
+	std::cout << "Enter number of rows (1-10): ";
+
+	std::cout << "Enter number of columns (1-10): ";
+	cols = getInput();
+
+	int** ppRootPointer = NULL;
+	ppRootPointer = new(int* [rows]); // create array of ptrs
+
+	for (int i = 0; i < rows; i++) {
+		ppRootPointer[i] = new(int[cols]); // create array for each ptr in aforementioned array of ptrs (to make 2d array)
+	}
+
+	populateTable(ppRootPointer, rows, cols);
+	printTable(ppRootPointer, rows, cols);
+
+	for (int i = 0; i < rows; i++) { // dealloc memory from each array in ptr array
+		delete[] ppRootPointer[i];
+	}
+	delete[] ppRootPointer; // dealloc ptr array
+}
+
+
 int getInput() {
 	int num = int(0);
 
@@ -90,32 +117,4 @@ void printTable(int** ppRootPointer, int rows, int cols) { // format and print t
 		}
 		std::cout << "\n";
 	}
-}
-
-
-int main()
-{
-	int rows = int(0);
-	int cols = int(0);
-
-	std::cout << "Enter number of rows (1-10): ";
-	rows = getInput();
-
-	std::cout << "Enter number of columns (1-10): ";
-	cols = getInput();
-
-	int** ppRootPointer = NULL;
-	ppRootPointer = new(int* [rows]); // create array of ptrs
-
-	for (int i = 0; i < rows; i++) {
-		ppRootPointer[i] = new(int[cols]); // create array for each ptr in aforementioned array of ptrs (to make 2d array)
-	}
-
-	populateTable(ppRootPointer, rows, cols);
-	printTable(ppRootPointer, rows, cols);
-
-	for (int i = 0; i < rows; i++) { // dealloc memory from each array in ptr array
-		delete[] ppRootPointer[i];
-	}
-	delete[] ppRootPointer; // dealloc ptr array
 }
