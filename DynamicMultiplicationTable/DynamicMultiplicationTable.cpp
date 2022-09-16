@@ -4,6 +4,7 @@
 #include <iostream>
 #include <iomanip>
 #include <limits>
+#include <conio.h>
 
 
 // prototype functions
@@ -43,6 +44,8 @@ int main()
 		delete[] ppRootPointer[i];
 	}
 	delete[] ppRootPointer; // dealloc ptr array
+
+	getche();
 }
 
 
