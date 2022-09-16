@@ -89,7 +89,7 @@ void printTable(int** ppRootPointer, int rows, int cols) { // format and print t
 
 	for (int i = 0; i <= cols; i++) {
 		if (!i) {
-			std::cout << "---"; // print divider under top row of numbers and omit leftmost + for leftmost cell
+			std::cout << "---"; // print divider under top row of numbers and omit leftmost "+" for leftmost cell
 		}
 		else {
 			std::cout << "+---";
@@ -114,10 +114,10 @@ void printTable(int** ppRootPointer, int rows, int cols) { // format and print t
 				break;
 			}
 			else if (!j) {
-				std::cout << "---"; // print divider between each row after first row (which is hard coded above)
+				std::cout << "---"; // print divider between each row after first row (which is done on line 92)
 			}
 			else {
-				std::cout << "+---"; // and omit leftmost + for leftmost cell, again
+				std::cout << "+---"; // and omit leftmost "+" for leftmost cell, again
 			}
 		}
 		std::cout << "\n";
