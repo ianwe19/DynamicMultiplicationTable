@@ -45,7 +45,7 @@ int main()
 	}
 	delete[] ppRootPointer; // dealloc ptr array
 
-	getche();
+	_getche;
 }
 
 
