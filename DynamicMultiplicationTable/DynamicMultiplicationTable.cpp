@@ -23,6 +23,7 @@ int main()
 	int cols = int(0);
 
 	std::cout << "Enter number of rows (1-10): ";
+	rows = getInput();
 
 	std::cout << "Enter number of columns (1-10): ";
 	cols = getInput();
@@ -80,7 +81,7 @@ void printTable(int** ppRootPointer, int rows, int cols) { // format and print t
 	std::cout << "   "; // print empty space in top left
 
 	for (int i = 0; i < cols; i++) {
-		std::cout << "|" << std::setw(3) << i + 1; // print top row of numbers
+		std::cout << "|" << std::setw(3) << i + 1; // print top row of numbers, i + 1 because indexing at 0
 	}
 
 	std::cout << "\n";
