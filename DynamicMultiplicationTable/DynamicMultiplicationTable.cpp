@@ -36,6 +36,7 @@ int main()
 	}
 
 	populateTable(ppRootPointer, rows, cols);
+
 	printTable(ppRootPointer, rows, cols);
 
 	for (int i = 0; i < rows; i++) { // dealloc memory from each array in ptr array
@@ -51,7 +52,7 @@ int getInput() {
 	std::cin >> num;
 	rewind(stdin); // clear potential extras from buffer
 
-	while (!(std::cin) || num < MIN_NUM || num > MAX_NUM) { // this is boilerplate code from stack overflow that i barely understand and barely works
+	while (!(std::cin) || num < MIN_NUM || num > MAX_NUM) { // for input sanitization
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		std::cout << "Must be integer between 1-10: ";
@@ -101,10 +102,13 @@ void printTable(int** ppRootPointer, int rows, int cols) { // format and print t
 
 	for (int i = 0; i < rows; i++) {
 		std::cout << std::setw(3) << i + 1; // hard coded way to print leftmost cell because of the space in top left
+
 		for (int j = 0; j < cols; j++) {
 			std::cout << "|" << std::setw(3) << *(*(ppRootPointer + i) + j); // print each value formatted like |___
 		}
+
 		std::cout << "\n";
+
 		for (int j = 0; j <= cols; j++) {
 			if (i == rows - 1) {
 				break;
